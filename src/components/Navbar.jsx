@@ -1,10 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Avatar from "../assets/icons/avatar.png";
-// import { logOut } from "../auth/firebase";
+import { logOut } from "../auth/firebase";
 
 const Navbar = () => {
   const currentUser = { displayName: "Ali" };
+  const navigate = useNavigate()
+
+const handleClick= ()=>{
+  logOut(navigate);
+};
+
+
   return (
     <>
       <nav className=" w-full flex flex-wrap items-center justify-between py-3 bg-gray-900  shadow-lg navbar navbar-expand-lg fixed-top">
@@ -51,7 +58,7 @@ const Navbar = () => {
                   <span
                     className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
                     role="button"
-                  >
+                  onClick={handleClick}>
                     Logout
                   </span>
                 </span>

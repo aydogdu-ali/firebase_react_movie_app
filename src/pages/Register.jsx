@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
+import {createUser} from "../auth/firebase"
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 // aytı ayrı stateler
   const [firstName, setFirstName]= useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");
 
-const handleSubmit=(e)=>{
+  const navigate = useNavigate();
+    const handleSubmit=(e)=>{
 e.preventDefault()
+createUser(email, password, navigate);
+
 console.log(firstName, lastName,email,password)
+setFirstName("")
+setLastName("")
+setEmail("")
+setPassword("")
 }
+
 
 
 
