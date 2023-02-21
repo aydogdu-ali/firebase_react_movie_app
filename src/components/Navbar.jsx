@@ -14,51 +14,47 @@ const Navbar = () => {
           </Link>
 
           {/* Right elements */}
-          <div className="flex items-center relative">
-            {currentUser && (
-              <h5 className="px-5 mr-3">{currentUser?.displayName}</h5>
-            )}
-         
+          <div className=" text-center">
+            <span>
+              {" "}
+              {currentUser && <span>{currentUser?.displayName}</span>}
+            </span>
 
-            <div className="dropdown relative">
-              <div
-                
-              >
+            <div className="items-center justify-between ">
+              <div className=" flex justify-center ">
                 <img
                   src={currentUser?.photoURL || Avatar}
-                  className="rounded-full"
+                  className="rounded-full "
                   style={{ height: "25px", width: "25px" }}
                   alt=""
                   loading="lazy"
                 />
               </div>
-              <div
-                className="dropdown-menu min-w-max absolute  bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none left-auto right-0"
-               
-              >
-                <li>
+              <div className="flex flex-wrap items-center justify-between ">
+                <span>
                   <Link
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
                     to="/register"
                   >
                     Register
                   </Link>
-                </li>
-                <li>
+                </span>
+                <span>
                   <Link
-                    className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                    className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent  text-red-700 hover:bg-gray-100"
                     to="/login"
                   >
                     Login
                   </Link>
-                </li>
-                <li>
+                </span>
+                <span>
                   <span
-                    className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
-                    role="button">
+                    className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
+                    role="button"
+                  >
                     Logout
                   </span>
-                </li>
+                </span>
               </div>
             </div>
           </div>
