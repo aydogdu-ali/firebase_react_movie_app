@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard";
 
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
@@ -22,12 +23,13 @@ const Main = () => {
     getMovies(FEATURED_API);
   }, []);
 
-  return <div className="flex justify-center flex-wrap">
-    
-    {movies.map((movie)=>null)}
-    
-    
-    </div>;
+  return (
+    <div className="flex justify-center flex-wrap">
+      {movies.map((movie) => (
+        <MovieCard key={movie.id} {...movie} />
+      ))}
+    </div>
+  );
 };
 
 export default Main;
