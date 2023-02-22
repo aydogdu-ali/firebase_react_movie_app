@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContextProvider";
 
 const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
+    const navigate = useNavigate();
     const { currentUser } = useContext(AuthContext);
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
   const defaultImage =
@@ -24,10 +26,10 @@ const getVoteClass = (vote) => {
   return (
     <div
       className="movie"
-    //   onClick={() => {
-    //     navigate("details/" + id);
-    //     !currentUser && toastWarnNotify("please log in to see details");
-    //   }}
+      onClick={() => {
+        navigate("details/" + id);
+        // !currentUser && toastWarnNotify("please log in to see details");
+      }}
     >
       <img
         loading="lazy"
