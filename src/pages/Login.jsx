@@ -1,28 +1,30 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../assets/icons/GoogleIcon";
-import { UserLogin } from "../auth/firebase";
+import { signUpWithGoogle, UserLogin } from "../auth/firebase";
 
 const Login = () => {
   // aytı ayrı stateler
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // navigate hook ile submit olunca anasayfaya yönlendirmek için kullandık.(firebase.js)
   const handleSubmit = (e) => {
     e.preventDefault();
-   UserLogin(email, password,navigate);
+    UserLogin(email, password, navigate);
     console.log(email, password);
-      
+
     setEmail("");
     setPassword("");
   };
 
- 
+  // google ile giriş yapma
+  const handleGoogleProvider = () => {
+    signUpWithGoogle(navigate);
+  };
 
-  
   return (
     <div className="flex justify-center">
       <div className="form-image hidden md:block">
@@ -91,7 +93,7 @@ const Login = () => {
             <button
               className="flex justify-between border-none outline-none bg-[#ff4b45] custom-input w-[300px] mt-[15px] rounded-[4px] font-[600] cursor-pointer"
               type="button"
-            >
+             onClick={handleGoogleProvider }>
               Continue with Google
               <GoogleIcon color="currentColor" />
             </button>

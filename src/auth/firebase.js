@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 //* Your web app's Firebase configuration
 
@@ -21,9 +21,16 @@ const app = initializeApp(firebaseConfig);
 
 //navigate i parametre olarak register componentinden aldık.
 // başarılı giriş olursa anasayfaya yönlendirecek.
- export const createUser = async (email, password, navigate) => {
+ export const createUser = async (email, password, navigate, displayName) => {
    try {
      let user = await createUserWithEmailAndPassword(auth, email, password);
+
+
+     //kullanıcı kayıt olur olmaz proflini ismini güncelleme methodu (register sayfasında parametre olarak gönderiliyor.)
+     await updateProfile(auth.currentUser, {
+       displayName: displayName,
+     });
+
      console.log(user);
      navigate("/")
    } catch (error) {
@@ -50,11 +57,12 @@ const app = initializeApp(firebaseConfig);
   //kullanıcı bilgisini takip eden yöntem
 //giriş-çıkış işlemleri için
 
-  export const userObserver = ()=>{
+  export const userObserver = (setCurrentUser)=>{
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       console.log(user)
+        const {email, displayName, photoURL}= user
+       setCurrentUser({ email, displayName, photoURL });
       } else {
         console.log("kullanıcı çıkış yaptı")
       }
@@ -73,3 +81,24 @@ const app = initializeApp(firebaseConfig);
       console.log(error);
     }
   };
+
+
+  // google ile giriş yapma
+  // google ile giriş enable olmalı
+  // proje deploy edildiğinde domain listesine deploy linki eklenmeli (Authentication=settings/Authorized domains ve  add domain yollarını seçerek yapabiliriz)
+
+
+  export const signUpWithGoogle =(navigate)=>{
+    const provider = new GoogleAuthProvider()
+
+    // Açılır pencere ile giriş yapmak için kullanılan yöntem.
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result)
+         navigate("/");
+      })
+      .catch((error) => {
+           console.log(error);
+      });
+
+  }
