@@ -37,6 +37,7 @@ const handleClick= ()=>{
                   style={{ height: "25px", width: "25px" }}
                   alt=""
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="flex flex-wrap items-center justify-between ">

@@ -64,6 +64,8 @@ const app = initializeApp(firebaseConfig);
         const {email, displayName, photoURL}= user
        setCurrentUser({ email, displayName, photoURL });
       } else {
+        /*çıkış yaptığında displayname  gözükmeyecek*/
+        setCurrentUser(false)
         console.log("kullanıcı çıkış yaptı")
       }
     });
