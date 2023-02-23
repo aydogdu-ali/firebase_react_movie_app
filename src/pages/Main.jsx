@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import { AuthContext } from "../context/AuthContextProvider";
+import { toastWarnNotify } from "../helpers/ToastNotifty";
 
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
@@ -34,11 +35,11 @@ const Main = () => {
     if (searchTerm && currentUser) {
       getMovies(SEARCH_API + searchTerm);
       setSearchTerm("");
-      // } else if (!currentUser) {
-      //   toastWarnNotify("detayları görmek için giriş yapınız");
+      } else if (!currentUser) {
+        toastWarnNotify("detayları görmek için giriş yapınız");
       //   // alert("detayları görmek için giriş yapınız");
-      // } else {
-      //   toastWarnNotify("Lütfen filmin adını yazınız");
+      } else {
+        toastWarnNotify("Lütfen filmin adını yazınız");
       //   // alert("Lütfen filmin adını yazınız");
     }
   };

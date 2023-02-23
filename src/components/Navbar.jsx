@@ -44,27 +44,41 @@ const handleClick= ()=>{
                 <span>
                   <Link
                     className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
+                    to="/"
+                  >
+                    Home
+                  </Link>
+                </span>
+
+                <span>
+                  <Link
+                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
                     to="/register"
                   >
                     Register
                   </Link>
                 </span>
-                <span>
-                  <Link
-                    className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent  text-red-700 hover:bg-gray-100"
-                    to="/login"
-                  >
-                    Login
-                  </Link>
-                </span>
-                <span>
-                  <span
-                    className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
-                    role="button"
-                  onClick={handleClick}>
-                    Logout
+
+                {currentUser ? (
+                  <span>
+                    <span
+                      className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
+                      role="button"
+                      onClick={handleClick}
+                    >
+                      Logout
+                    </span>
                   </span>
-                </span>
+                ) : (
+                  <span>
+                    <Link
+                      className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent  text-red-700 hover:bg-gray-100"
+                      to="/login"
+                    >
+                      Login
+                    </Link>
+                  </span>
+                )}
               </div>
             </div>
           </div>
