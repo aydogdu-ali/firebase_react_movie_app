@@ -18,7 +18,10 @@ const handleClick= ()=>{
     <>
       <nav className=" w-full flex flex-wrap items-center justify-between py-3 bg-gray-900  shadow-lg navbar navbar-expand-lg fixed-top">
         <div className="container-fluid text-white w-full flex items-center justify-between px-6">
-          <Link to="/" className="text-2xl  pr-2 font-semibold">
+          <Link
+            to="/firebase_react_movie_app"
+            className="text-2xl  pr-2 font-semibold"
+          >
             Movie App with React
           </Link>
 
@@ -46,7 +49,7 @@ const handleClick= ()=>{
                 <span>
                   <Link
                     className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-blue-50"
-                    to="/"
+                    to="/firebase_react_movie_app"
                   >
                     Home
                   </Link>
