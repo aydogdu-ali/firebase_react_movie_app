@@ -10,6 +10,7 @@ const App = () => {
 
 
 // context ile tüm sayfalarımızı sarmaladık.
+//Toastify kütüphanedinide heryerde kullanmak için app içinde çağırdım.
   return (
     <div >
       <AuthContextProvider>

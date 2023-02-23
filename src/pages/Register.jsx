@@ -4,7 +4,7 @@ import {createUser, signUpWithGoogle} from "../auth/firebase"
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-// aytı ayrı stateler
+// ayrı ayrı stateler
   const [firstName, setFirstName]= useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -53,12 +53,13 @@ const handleGoogleProvider = ()=>{
       </div>
       <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
         <div
-          className={`mt-[3vh] mx-auto overflow-hidden relative w-[380px] h-[620px] rounded-[8px] bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] custom-linear-gradient`}
+          className={`mt-[3vh] mx-auto overflow-hidden relative w-[380px] h-[620px] rounded-[8px] bg-gray-100 dark:bg-[#1c1c1c] before:content-[""] before:absolute before:w-[380px] before:h-[420px] before:top-[-50%] before:left-[-50%] after:content-[""] after:absolute after:w-[380px] after:h-[420px] after:top-[-50%] after:left-[-50%] `}
         >
-          <form className="absolute inset-[2px] rounded-[8px] bg-[#28292d] z-[10] form flex flex-col p-20"
-          
-          onSubmit={handleSubmit}>
-            <h2 className="text-[#cf2c27] text-2xl font-[500] text-center tracking-[0.1em]">
+          <form
+            className="absolute inset-[2px] rounded-[8px] bg-[#31438b] z-[10] form flex flex-col p-20"
+            onSubmit={handleSubmit}
+          >
+            <h2 className="text-[#efebea] text-2xl font-[500] text-center tracking-[0.1em]">
               Sign Up
             </h2>
             <div className="relative w-[300px] mt-[35px] inputbox">
@@ -110,14 +111,15 @@ const handleGoogleProvider = ()=>{
               <i className="absolute left-0 bottom-0 w-[100%] h-[2px] bg-[#ff4b45] rounded-[4px]"></i>
             </div>
             <input
-              className="border-none outline-none bg-[#ff4b45] custom-input w-[100px] mt-[10px] rounded-[4px] font-[600] cursor-pointer"
+              className=" flex justify-center border-none outline-none bg-[#ebe3e3] custom-input w-[100px] mt-[10px] rounded-[4px] font-[600] cursor-pointer"
               type="submit"
               value="Register"
             />
             <button
-              className="flex justify-between border-none outline-none bg-[#ff4b45] custom-input w-[300px] mt-[15px] rounded-[4px] font-[600] cursor-pointer"
+              className="flex justify-between border-none outline-none bg-[#e9d5d5] custom-input w-[300px] mt-[15px] rounded-[4px] font-[600] cursor-pointer"
               type="button"
-            onClick={handleGoogleProvider}>
+              onClick={handleGoogleProvider}
+            >
               Continue with Google
               <GoogleIcon color="currentColor" />
             </button>

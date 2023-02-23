@@ -30,6 +30,7 @@ const Main = () => {
     getMovies(FEATURED_API);
   }, []);
 
+  // arama fonksiyonu ve koşulları belirttim.
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchTerm && currentUser) {

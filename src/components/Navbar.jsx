@@ -43,7 +43,7 @@ const handleClick= ()=>{
               <div className="flex flex-wrap items-center justify-between ">
                 <span>
                   <Link
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
+                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-blue-50"
                     to="/"
                   >
                     Home
@@ -52,7 +52,7 @@ const handleClick= ()=>{
 
                 <span>
                   <Link
-                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
+                    className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700  hover:bg-gray-50"
                     to="/register"
                   >
                     Register
@@ -62,7 +62,7 @@ const handleClick= ()=>{
                 {currentUser ? (
                   <span>
                     <span
-                      className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-100"
+                      className=" text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-red-700 hover:bg-gray-50"
                       role="button"
                       onClick={handleClick}
                     >

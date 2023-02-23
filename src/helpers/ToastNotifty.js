@@ -1,5 +1,8 @@
 import { toast } from "react-toastify";
 
+
+// uyarı mesajları için fonksiyonlar tanımladım. Toastifay kütüphanesini kullandım.
+
 export const toastWarnNotify = (msg) => {
   toast.warn(msg, {
     autoClose: 3000,

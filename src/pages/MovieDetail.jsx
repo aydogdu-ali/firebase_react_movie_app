@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import VideoSection from "../components/VideoSection";
 
+
+// kullanıcı tıkladığı filmin detaylarını görebilecek. AYRICA OLANLAR için kısa videosu çıkacak
 const MovieDetail = () => {
   const [movieDetails, setMovieDetails] = useState("");
   const [videoKey, setVideoKey] = useState();
