@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
+import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "../helpers/ToastNotifty";
 
 //* Your web app's Firebase configuration
 
@@ -32,6 +33,7 @@ const app = initializeApp(firebaseConfig);
      });
 
      console.log(user);
+      toastSuccessNotify("Üyelik işleminiz Tamamlandı");
      navigate("/")
    } catch (error) {
      console.log(error.message);
@@ -46,7 +48,9 @@ const app = initializeApp(firebaseConfig);
   export const UserLogin = async (email, password,navigate) => {
     try {
       let uselogin = await signInWithEmailAndPassword(auth, email, password);
+
       navigate("/");
+      toastSuccessNotify("Hoşgeldiniz")
       console.log(uselogin);
     } catch (error) {
       console.log(error.message);
@@ -79,6 +83,7 @@ const app = initializeApp(firebaseConfig);
     try {
       signOut(auth);
       navigate("/login")
+      toastSuccessNotify("Hoşcakalın");
     } catch (error) {
       console.log(error);
     }
@@ -104,3 +109,19 @@ const app = initializeApp(firebaseConfig);
       });
 
   }
+
+
+  // kullanıcı mailini unutursa sıfırlama maili için 
+  export const forgotPassword = (email) => {
+    //? Email yoluyla şifre sıfırlama için kullanılan firebase metodu
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        toastWarnNotify("Mail kutunuzu kontrol ediniz!");
+       
+      })
+      .catch((err) => {
+        toastErrorNotify(err.message);
+        
+      });
+  };
