@@ -31,14 +31,16 @@ const handleClick= ()=>{
 
             <div className="items-center justify-between ">
               <div className=" flex justify-center ">
-                <img
-                  src={currentUser?.photoURL || Avatar}
-                  className="rounded-full "
-                  style={{ height: "25px", width: "25px" }}
-                  alt=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
+                {currentUser && (
+                  <img
+                    src={currentUser?.photoURL || Avatar}
+                    className="rounded-full "
+                    style={{ height: "25px", width: "25px" }}
+                    alt=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                )}
               </div>
               <div className="flex flex-wrap items-center justify-between ">
                 <span>
