@@ -13,6 +13,10 @@
 #Ancak bu uygulamada sadece forgot password kısmı çalışmamaktır. Onun için projeyi deploy etmem gerekir.
 
 
+#Uygulamanın sonucunu aşağıdaki adresden görebilirsiniz.
+
+ https://aydogdu-ali.github.io/firebase_react_movie_app/
+
 
 
 
