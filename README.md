@@ -10,10 +10,10 @@
 
 #Firebase ile kullanıcı /register/login/logout/ işlemleri ile google ile giriş işlemleri yapılmıştır.
 
-#Ancak bu uygulamada sadece forgot password kısmı çalışmamaktır. Onun için projeyi deploy etmem gerekir.
-
 
 #Uygulamanın sonucunu aşağıdaki adresden görebilirsiniz. Detaylı kod açıklamaları ilgili sayfalarda yapılmıştır.
+
+#Herkese faydalı olması dileklerimle
 
  https://aydogdu-ali.github.io/firebase_react_movie_app/
 
